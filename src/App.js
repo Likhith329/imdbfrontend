@@ -14,14 +14,16 @@ function App() {
   const navigate=useNavigate()
   const user=JSON.parse(localStorage.getItem('userInfo'))
   
-
+ function Render(){
+  setRender(!render)
+ }
   
   return (
     <div className="App">
       <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/movies' element={<Moviespage/>} />
+          <Route path='/movies' element={<Moviespage Render={Render} render={render}/>} />
           <Route path='/addmovie' element={<Addmovie/>}/>
           <Route path='/editmovie/:movieid' element={<Editmovie />} />
       </Routes>
